@@ -11,7 +11,7 @@ export const formatWhatsAppMessage = (items: CartItem[], total: number): string 
 };
 
 export const generateWhatsAppLink = (items: CartItem[], total: number): string => {
-  const phoneNumber = '254700000000'; // Replace with actual business number
+  const phoneNumber = '254746043054'; // Replace with actual business number
   const message = formatWhatsAppMessage(items, total);
   const encodedMessage = encodeURIComponent(message);
   

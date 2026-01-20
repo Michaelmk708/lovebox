@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Plus, Minus, ShoppingBag, MessageCircle, Trash2 } from 'lucide-react';
+import { X, Plus, Minus, ShoppingBag, MessageCircle, Trash2, AlertCircle } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { formatPrice, generateWhatsAppLink } from '@/utils/whatsapp';
 import { Button } from '@/components/ui/button';
@@ -7,7 +7,13 @@ import { Button } from '@/components/ui/button';
 const CartDrawer = () => {
   const { items, isCartOpen, setIsCartOpen, updateQuantity, removeFromCart, totalPrice, clearCart } = useCart();
 
+  // --- BUSINESS LOGIC: 50% DEPOSIT ---
+  const depositAmount = totalPrice / 2;
+
   const handleWhatsAppOrder = () => {
+    // We pass the deposit amount to the generator (or you can update the generator logic)
+    // If your generator only takes items/total, that's fine, the text can be generic.
+    // Ideally, ensure your generateWhatsAppLink includes the text about the deposit.
     const link = generateWhatsAppLink(items, totalPrice);
     window.open(link, '_blank');
   };
@@ -115,20 +121,34 @@ const CartDrawer = () => {
               )}
             </div>
 
-            {/* Footer */}
+            {/* Footer with DEPOSIT LOGIC */}
             {items.length > 0 && (
               <div className="border-t border-border p-4 space-y-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-muted-foreground">Total</span>
-                  <span className="text-2xl font-bold text-foreground">
-                    {formatPrice(totalPrice)}
-                  </span>
+                
+                {/* Price Breakdown */}
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between text-muted-foreground text-sm">
+                    <span>Subtotal</span>
+                    <span>{formatPrice(totalPrice)}</span>
+                  </div>
+                  
+                  {/* --- THE IMPORTANT DEPOSIT BOX --- */}
+                  <div className="bg-rose-50 border border-rose-200 rounded-lg p-3 space-y-1">
+                    <div className="flex items-center justify-between text-rose-700">
+                      <span className="font-bold text-sm">Deposit Due Now (50%)</span>
+                      <span className="font-bold text-lg">{formatPrice(depositAmount)}</span>
+                    </div>
+                    <div className="flex items-start gap-1.5 text-xs text-rose-600/80">
+                      <AlertCircle className="w-3 h-3 mt-0.5 shrink-0" />
+                      <p>Required by Feb 10th to confirm order. Balance due on delivery.</p>
+                    </div>
+                  </div>
                 </div>
 
                 <Button
                   onClick={handleWhatsAppOrder}
                   size="lg"
-                  className="w-full btn-touch text-lg gap-2"
+                  className="w-full btn-touch text-lg gap-2 bg-rose-600 hover:bg-rose-700 text-white"
                 >
                   <MessageCircle className="w-5 h-5" />
                   Order via WhatsApp

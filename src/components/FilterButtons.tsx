@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-type Category = 'all' | 'budget' | 'hampers' | 'digital';
+type Category = 'all' | 'budget' | 'hampers' | 'digital' | 'Wines' | 'Services' | 'packages';
 
 interface FilterButtonsProps {
   activeFilter: Category;
@@ -12,6 +12,9 @@ const filters: { id: Category; label: string }[] = [
   { id: 'budget', label: 'Under 500' },
   { id: 'hampers', label: 'Hampers' },
   { id: 'digital', label: 'Digital Gifts' },
+  { id: 'Wines', label: 'Wines' },
+  { id: 'Services', label: 'Services' },
+  { id: 'packages', label: 'Packages' },
 ];
 
 const FilterButtons = ({ activeFilter, onFilterChange }: FilterButtonsProps) => {

@@ -45,7 +45,7 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
         >
           <span className="inline-block px-4 py-1.5 bg-secondary text-secondary-foreground rounded-full text-sm font-medium mb-6">
-            Valentine's Collection 2024
+            Valentine's Collection 2026
           </span>
           
           <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight mb-6">
