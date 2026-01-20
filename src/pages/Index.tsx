@@ -5,6 +5,7 @@ import Hero from '@/components/Hero';
 import FilterButtons from '@/components/FilterButtons';
 import ProductCard from '@/components/ProductCard';
 import CartDrawer from '@/components/CartDrawer';
+import PremiumShowcase from '@/components/PremiumShowcase';
 import { products } from '@/data/products';
 import { Heart } from 'lucide-react';
 
@@ -13,7 +14,13 @@ type Category = 'all' | 'budget' | 'hampers' | 'digital';
 const Index = () => {
   const [activeFilter, setActiveFilter] = useState<Category>('all');
 
-  const filteredProducts = products.filter((product) => {
+  // Get the premium product (Custom Love Website)
+  const premiumProduct = products.find(p => p.id === '3');
+  
+  // Filter out the premium product from regular grid
+  const regularProducts = products.filter(p => p.id !== '3');
+  
+  const filteredProducts = regularProducts.filter((product) => {
     if (activeFilter === 'all') return true;
     return product.category === activeFilter;
   });
@@ -22,6 +29,11 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <Hero />
+
+      {/* Premium Showcase - Custom Love Website */}
+      {premiumProduct && (activeFilter === 'all' || activeFilter === 'digital') && (
+        <PremiumShowcase product={premiumProduct} />
+      )}
 
       {/* Products Section */}
       <section id="products" className="py-12 md:py-20">
