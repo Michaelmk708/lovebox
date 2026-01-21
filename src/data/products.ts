@@ -2,7 +2,7 @@ export interface Product {
   id: string;
   name: string;
   price: number;
-  category: 'budget' | 'hampers' | 'digital' | 'Wines' | 'Services' | 'packages';
+  category: 'budget' | 'hampers' | 'digital' | 'Wines' | 'Services' | 'packages' | 'keepsakes';
   image: string;
   description: string;
 }
@@ -13,7 +13,7 @@ export const products: Product[] = [
     name: 'Love Letter Box',
     price: 450,
     category: 'budget',
-    image: 'https://images.unsplash.com/photo-1549488344-cbb6c34cf08b?w=400&h=400&fit=crop',
+    image: 'https://i.pinimg.com/1200x/19/b5/20/19b520dd2d19a3b0c51f7d88fe3e5142.jpg',
     description: 'Handwritten love letters with rose petals in a beautiful keepsake box.'
   },
   {
@@ -21,7 +21,7 @@ export const products: Product[] = [
     name: 'Red Rose Hamper',
     price: 2500,
     category: 'hampers',
-    image: 'https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?w=400&h=400&fit=crop',
+    image: 'https://i.pinimg.com/736x/58/67/c5/5867c5181d6a3613073c72e23c3bc7bb.jpg',
     description: 'Luxury hamper with roses, chocolates, wine, and scented candles.'
   },
   {
@@ -35,9 +35,9 @@ export const products: Product[] = [
   {
     id: '4',
     name: 'Chocolate Heart Box',
-    price: 350,
+    price: 900,
     category: 'budget',
-    image: 'https://images.unsplash.com/photo-1548741487-18d363dc4469?w=400&h=400&fit=crop',
+    image: 'https://i.pinimg.com/736x/bf/de/ec/bfdeec4dc7ff76ab2310f9d48c846957.jpg',
     description: 'Premium Belgian chocolates arranged in a heart-shaped box.'
   },
   
@@ -46,7 +46,7 @@ export const products: Product[] = [
     name: 'Teddy Bear & Roses',
     price: 1200,
     category: 'hampers',
-    image: 'https://images.unsplash.com/photo-1559563362-c667ba5f5480?w=400&h=400&fit=crop',
+    image: 'https://i.pinimg.com/736x/ed/49/b6/ed49b6655caaeaaf80c8a082e02aa1fc.jpg',
     description: 'Adorable plush teddy bear with a bouquet of fresh red roses.'
   },
   {
@@ -54,7 +54,7 @@ export const products: Product[] = [
     name: 'Digital Love Card',
     price: 200,
     category: 'digital',
-    image: 'https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=400&h=400&fit=crop',
+    image: 'https://i.pinimg.com/736x/89/06/79/8906792d9aec1b30d9e4846108d0b283.jpg',
     description: 'Animated digital greeting card with personalized message and music.'
   },
   {
@@ -62,7 +62,7 @@ export const products: Product[] = [
     name: 'Scented Candle Set',
     price: 480,
     category: 'budget',
-    image: 'https://images.unsplash.com/photo-1602028915047-37269d1a73f7?w=400&h=400&fit=crop',
+    image: 'https://i.pinimg.com/736x/7a/a1/96/7aa19681df57999da2004d355233b54d.jpg',
     description: 'Set of 3 romantic scented candles - rose, vanilla, and lavender.'
   },
  {
@@ -137,5 +137,21 @@ export const products: Product[] = [
     category: "packages",
     image: "https://i.pinimg.com/736x/54/63/e5/5463e55f01317109f8eda6b6d72fb9d1.jpg", 
     description: "A cute medium-sized Teddy Bear holding a bouquet of roses. The gift that stays on her bed forever.",
+  },
+  {
+    id: '17',
+    name: "personalized keychain",
+    price: 700,
+    category: "keepsakes",
+    image: "https://i.pinimg.com/1200x/5d/52/19/5d5219964b77793e6746ffd4661a2f0e.jpg", 
+    description: "Carry a piece of them everywhere. Custom engraved with your initials or special date.",
+  },
+  {
+    id: '18',
+    name: "personalized postcards",
+    price: 650,
+    category: "keepsakes",
+    image: "https://i.pinimg.com/736x/a3/52/7d/a3527dcda36b1c0231c4d7343174b68f.jpg", 
+    description: "Turn your favorite memory into a keepsake. Premium cardstock with a custom design",
   }
 ];

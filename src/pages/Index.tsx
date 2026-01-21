@@ -9,7 +9,7 @@ import PremiumShowcase from '@/components/PremiumShowcase';
 import { products } from '@/data/products';
 import { Heart } from 'lucide-react';
 
-type Category = 'all' | 'budget' | 'hampers' | 'digital' | 'Wines' | 'Services' | 'packages';
+type Category = 'all' | 'budget' | 'hampers' | 'digital' | 'Wines' | 'Services' | 'packages' | 'keepsakes';
 
 const Index = () => {
   const [activeFilter, setActiveFilter] = useState<Category>('all');
