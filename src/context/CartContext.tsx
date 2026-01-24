@@ -1,8 +1,9 @@
-import React, { createContext, useContext, useState, useCallback } from 'react';
+import React, { createContext, useContext, useState, useCallback, useEffect } from 'react';
 import { Product } from '@/data/products';
 
 export interface CartItem extends Product {
   quantity: number;
+  customText?: string;
 }
 
 interface CartContextType {
@@ -13,6 +14,7 @@ interface CartContextType {
   clearCart: () => void;
   totalItems: number;
   totalPrice: number;
+  cartTotal: number; // 👈 Added this to fix the error in Checkout.tsx
   isCartOpen: boolean;
   setIsCartOpen: (open: boolean) => void;
   justAdded: boolean;
@@ -24,6 +26,23 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [items, setItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [justAdded, setJustAdded] = useState(false);
+
+  // 1. Load cart from localStorage on mount
+  useEffect(() => {
+    const savedCart = localStorage.getItem('cart');
+    if (savedCart) {
+      try {
+        setItems(JSON.parse(savedCart));
+      } catch (error) {
+        console.error("Failed to parse cart data", error);
+      }
+    }
+  }, []);
+
+  // 2. Save cart to localStorage whenever items change
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(items));
+  }, [items]);
 
   const addToCart = useCallback((product: Product) => {
     setItems((prevItems) => {
@@ -40,6 +59,7 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
     
     // Trigger animation
     setJustAdded(true);
+    setIsCartOpen(true); // Automatically open cart when adding
     setTimeout(() => setJustAdded(false), 300);
   }, []);
 
@@ -61,10 +81,15 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const clearCart = useCallback(() => {
     setItems([]);
+    localStorage.removeItem('cart');
   }, []);
 
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
-  const totalPrice = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  
+  // Robust calculation handling both string and number inputs for price
+  const cartTotal = items.reduce((total, item) => {
+    return total + (Number(item.price) * item.quantity);
+  }, 0);
 
   return (
     <CartContext.Provider
@@ -75,7 +100,8 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
         updateQuantity,
         clearCart,
         totalItems,
-        totalPrice,
+        totalPrice: cartTotal, // Map to cartTotal so they are always the same
+        cartTotal,             // Expose specifically for Checkout.tsx
         isCartOpen,
         setIsCartOpen,
         justAdded,

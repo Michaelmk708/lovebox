@@ -1,21 +1,22 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Plus, Minus, ShoppingBag, MessageCircle, Trash2, AlertCircle } from 'lucide-react';
+import { X, Plus, Minus, ShoppingBag, Trash2, AlertCircle } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
-import { formatPrice, generateWhatsAppLink } from '@/utils/whatsapp';
+import { formatPrice } from '@/utils/whatsapp';
 import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
 
 const CartDrawer = () => {
   const { items, isCartOpen, setIsCartOpen, updateQuantity, removeFromCart, totalPrice, clearCart } = useCart();
+  const navigate = useNavigate();
 
   // --- BUSINESS LOGIC: 50% DEPOSIT ---
   const depositAmount = totalPrice / 2;
 
-  const handleWhatsAppOrder = () => {
-    // We pass the deposit amount to the generator (or you can update the generator logic)
-    // If your generator only takes items/total, that's fine, the text can be generic.
-    // Ideally, ensure your generateWhatsAppLink includes the text about the deposit.
-    const link = generateWhatsAppLink(items, totalPrice);
-    window.open(link, '_blank');
+  const handleCheckout = () => {
+    // Close the drawer first
+    setIsCartOpen(false);
+    // Navigate to the checkout page we created
+    navigate('/checkout');
   };
 
   return (
@@ -146,12 +147,12 @@ const CartDrawer = () => {
                 </div>
 
                 <Button
-                  onClick={handleWhatsAppOrder}
+                  onClick={handleCheckout}
                   size="lg"
                   className="w-full btn-touch text-lg gap-2 bg-rose-600 hover:bg-rose-700 text-white"
                 >
-                  <MessageCircle className="w-5 h-5" />
-                  Order via WhatsApp
+                  <ShoppingBag className="w-5 h-5" />
+                  Proceed to Checkout
                 </Button>
 
                 <button

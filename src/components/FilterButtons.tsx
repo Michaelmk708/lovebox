@@ -1,44 +1,47 @@
 import { motion } from 'framer-motion';
 
-type Category = 'all' | 'budget' | 'hampers' | 'digital' | 'Wines' | 'Services' | 'packages'| 'keepsakes';
+// Add the new categories to the Type definition here too
+type Category = 'all' | 'budget' | 'hampers' | 'digital' | 'Wines' | 'Services' | 'packages' | 'keepsakes' | 'flowers' | 'teddy_bears';
 
 interface FilterButtonsProps {
   activeFilter: Category;
-  onFilterChange: (filter: Category) => void;
+  onFilterChange: (category: Category) => void;
 }
 
-const filters: { id: Category; label: string }[] = [
-  { id: 'all', label: 'All Gifts' },
-  { id: 'budget', label: 'Under 500' },
-  { id: 'hampers', label: 'Hampers' },
-  { id: 'digital', label: 'Digital Gifts' },
-  { id: 'Wines', label: 'Wines' },
-  { id: 'Services', label: 'Services' },
-  { id: 'packages', label: 'Packages' },
-  { id: 'keepsakes', label: 'Keepsakes' },
-];
-
 const FilterButtons = ({ activeFilter, onFilterChange }: FilterButtonsProps) => {
+  // Define your buttons here. The 'id' must match the Category type exactly.
+  const categories: { id: Category; label: string }[] = [
+    { id: 'all', label: 'All Gifts' },
+    { id: 'budget', label: 'Budget (<500)' },
+    { id: 'packages', label: 'Packages' },
+    { id: 'hampers', label: 'Hampers' },
+    { id: 'flowers', label: '🌹 Flowers' },         // <-- NEW BUTTON
+    { id: 'teddy_bears', label: '🧸 Teddies' },      // <-- NEW BUTTON
+    { id: 'Wines', label: 'Wines' },
+    { id: 'keepsakes', label: 'Keepsakes' },
+    { id: 'digital', label: 'Digital' },
+  ];
+
   return (
-    <div className="flex flex-wrap gap-2 justify-center mb-8">
-      {filters.map((filter) => (
+    <div className="flex flex-wrap justify-center gap-3 mb-8">
+      {categories.map((category) => (
         <button
-          key={filter.id}
-          onClick={() => onFilterChange(filter.id)}
-          className={`relative btn-touch px-5 py-2.5 rounded-full text-sm font-medium transition-colors ${
-            activeFilter === filter.id
-              ? 'text-primary-foreground'
-              : 'text-muted-foreground hover:text-foreground bg-secondary hover:bg-secondary/80'
+          key={category.id}
+          onClick={() => onFilterChange(category.id)}
+          className={`relative px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+            activeFilter === category.id
+              ? 'text-white shadow-lg shadow-rose-200'
+              : 'text-gray-600 hover:bg-rose-50 hover:text-rose-600 bg-white border border-gray-100'
           }`}
         >
-          {activeFilter === filter.id && (
+          {activeFilter === category.id && (
             <motion.div
               layoutId="activeFilter"
-              className="absolute inset-0 bg-primary rounded-full"
-              transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+              className="absolute inset-0 bg-rose-600 rounded-full"
+              transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
             />
           )}
-          <span className="relative z-10">{filter.label}</span>
+          <span className="relative z-10">{category.label}</span>
         </button>
       ))}
     </div>

@@ -17,6 +17,16 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
   
   const isPremium = product.category === 'digital' || product.price >= 2500;
 
+  // Helper to get the display label for categories
+  const getCategoryLabel = (cat: string) => {
+    if (cat === 'budget') return '💝 Under 500';
+    if (cat === 'hampers') return '🎁 Luxury Hamper';
+    if (cat === 'digital') return '✨ Digital Gift';
+    if (cat === 'keepsakes') return '🧸 Keepsake';
+    // Fallback: Capitalize the category name (e.g. "Flowers")
+    return `🌹 ${cat.charAt(0).toUpperCase() + cat.slice(1)}`;
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30, scale: 0.95 }}
@@ -145,7 +155,7 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
       </div>
 
       <div className="relative p-5">
-        {/* Category label */}
+        {/* Category label - UPDATED LOGIC HERE */}
         <motion.p 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -154,8 +164,7 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
             isPremium ? 'text-primary' : 'text-muted-foreground'
           }`}
         >
-          {product.category === 'budget' ? '💝 Under 500' : 
-           product.category === 'hampers' ? '🎁 Luxury Hamper' : '✨ Digital Gift'}
+          {getCategoryLabel(product.category)}
         </motion.p>
         
         {/* Product name with elegant typography */}
