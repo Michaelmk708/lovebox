@@ -223,7 +223,7 @@ const PremiumShowcase = ({ product }: PremiumShowcaseProps) => {
                   {/* Trust badges */}
                   <div className="mt-6 pt-6 border-t border-primary/10 flex flex-wrap gap-4 text-xs text-muted-foreground">
                     <span className="flex items-center gap-1">
-                      <Heart className="w-3 h-3 text-primary" /> 500+ Happy Couples
+                      <Heart className="w-3 h-3 text-primary" /> Handcrafted with Love
                     </span>
                     <span className="flex items-center gap-1">
                       <Sparkles className="w-3 h-3 text-amber-500" /> Lifetime Access
