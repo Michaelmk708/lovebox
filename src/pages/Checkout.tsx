@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Loader2, Smartphone, ShieldCheck } from 'lucide-react';
+import { Loader2, Smartphone, ShieldCheck, Calendar, Clock } from 'lucide-react';
 
 const Checkout = () => {
   const { items, clearCart, cartTotal } = useCart();
@@ -31,6 +31,8 @@ const Checkout = () => {
     email: '',
     phone_number: '',
     address: '',
+    delivery_date: '', // 👈 Added
+    delivery_time: '', // 👈 Added
     transaction_code: '', 
   });
 
@@ -39,9 +41,20 @@ const Checkout = () => {
     setLoading(true);
 
     try {
+      // Create a combined Delivery string or send them separately based on your backend model.
+      // Assuming your backend model has a 'delivery_instructions' or 'address' field, 
+      // we can append this info there, OR if you added specific fields in Django, send them directly.
+      // For now, I will append them to the address to ensure the Admin sees it without backend changes.
+      
+      const fullDeliveryDetails = `${formData.address} | Date: ${formData.delivery_date} | Time: ${formData.delivery_time}`;
+
       const orderPayload = {
-        ...formData,
-        total_amount: safeTotal, // We still save the FULL value in the DB
+        full_name: formData.full_name,
+        email: formData.email,
+        phone_number: formData.phone_number,
+        address: fullDeliveryDetails, // Sending combined info to address field to be safe
+        transaction_code: formData.transaction_code,
+        total_amount: safeTotal,
         items: items.map(item => ({
           product_name: item.name,
           quantity: item.quantity,
@@ -87,22 +100,21 @@ const Checkout = () => {
             
             {/* The Till Number Box */}
             <div className="bg-green-50 border-2 border-green-100 rounded-2xl p-6 mb-6 text-center">
-              <p className="text-sm font-semibold text-green-800 uppercase tracking-wider mb-2">Buy Goods (Till Number)</p>
-              <p className="text-4xl font-black text-green-900 tracking-widest mb-2" style={{textDecoration:"line-through"}}>123 456</p>
-              <p className="text-sm text-green-700">Name: LOVEBOX GIFTING</p>
+              <p className="text-sm font-semibold text-green-800 uppercase tracking-wider mb-2">Pochi La Biashara</p>
+              <p className="text-4xl font-black text-green-900 tracking-widest mb-2" >0746043054</p>
+              <p className="text-sm text-green-700">Name: MICHAEL KIHUGU</p>
             </div>
 
             <div className="space-y-4">
                 <div className="flex items-start gap-3 text-sm text-gray-600">
                     <div className="bg-green-100 text-green-700 w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 font-bold">1</div>
-                    <p>Go to M-Pesa &gt; Lipa na M-Pesa &gt; Buy Goods</p>
+                    <p>Go to M-Pesa &gt; Lipa na M-Pesa &gt; Pochi la Biashara</p>
                 </div>
                 <div className="flex items-start gap-3 text-sm text-gray-600">
                     <div className="bg-green-100 text-green-700 w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 font-bold">2</div>
-                    <p>Enter Till: <strong style={{textDecoration:"line-through"}}>123 456</strong></p>
+                    <p>Enter Phone Number: <strong >0746043054</strong></p>
                 </div>
                 
-                {/* 👇 FIXED: Shows 50% Deposit Amount */}
                 <div className="flex items-start gap-3 text-sm text-gray-600">
                     <div className="bg-green-100 text-green-700 w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 font-bold">3</div>
                     <div>
@@ -157,6 +169,33 @@ const Checkout = () => {
               <div className="space-y-2">
                 <Label>Delivery Location</Label>
                 <Input required placeholder="e.g. dekut gate A:Bella Apartments ,room..." value={formData.address} onChange={e => setFormData({...formData, address: e.target.value})} />
+              </div>
+
+              {/* 👇 NEW: Delivery Date and Time Fields */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label className="flex items-center gap-2">
+                    <Calendar className="w-4 h-4 text-rose-600" /> Date
+                  </Label>
+                  <Input 
+                    required 
+                    type="date" 
+                    min={new Date().toISOString().split("T")[0]} // Disable past dates
+                    value={formData.delivery_date} 
+                    onChange={e => setFormData({...formData, delivery_date: e.target.value})} 
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label className="flex items-center gap-2">
+                    <Clock className="w-4 h-4 text-rose-600" /> Time
+                  </Label>
+                  <Input 
+                    required 
+                    type="time" 
+                    value={formData.delivery_time} 
+                    onChange={e => setFormData({...formData, delivery_time: e.target.value})} 
+                  />
+                </div>
               </div>
 
               <div className="pt-4 pb-2">
