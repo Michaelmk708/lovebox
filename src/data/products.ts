@@ -1,8 +1,10 @@
+import test from "node:test";
+
 export interface Product {
   id: string;
   name: string;
   price: number;
-  category: 'budget' | 'hampers' | 'digital' | 'Wines' | 'Services' | 'packages' | 'keepsakes' | 'perfumes'| 'chocolates';
+  category: 'budget' | 'hampers' | 'digital' | 'Wines' | 'Services' | 'packages' | 'keepsakes' | 'perfumes'| 'chocolates' |"teddy_bears" | "flowers";
   image: string;
   description: string;
 }
@@ -12,9 +14,9 @@ export const products: Product[] = [
     id: '1',
     name: 'wooden Love Letter Box',
     price: 2500,
-    category: 'budget',
-    image: 'https://i.pinimg.com/1200x/19/b5/20/19b520dd2d19a3b0c51f7d88fe3e5142.jpg',
-    description: 'Handwritten love letters with rose petals in a beautiful keepsake box.'
+    category: 'keepsakes',
+    image: '/letterbox.jpeg',
+    description: 'A home for your "Reasons Why." Whether it\'s a stack of love letters or small romantic tokens, this engraved box makes the sentiment stay. We’ll laser-engrave your names or a custom note directly into the teak. Just add your letters; we’ll handle the "wow" factor.'
   },
   {
     id: '2',
@@ -95,7 +97,7 @@ export const products: Product[] = [
     name: "Service: The 'Ghost' Delivery",
     price: 150,
     category: "Services",
-    image: "/images/service-secret.jpg", // Use an image of a 'shush' emoji or a mask
+    image: "/anonymous.png", 
     description: "We deliver it anonymously. We won't reveal your identity until you are ready. Perfect for secret admirers.",
   },
   {
@@ -103,7 +105,7 @@ export const products: Product[] = [
     name: "Service: The 'Public Flex'",
     price: 250,
     category: "Services",
-    image: "/images/service-public.jpg", // Use an image of a crowd or a stage
+    image: "/flex.png", 
     description: "We deliver to them in Class or the Mess Hall in front of their friends. Maximum attention guaranteed.",
   },
   {
@@ -140,7 +142,7 @@ export const products: Product[] = [
   },
   {
     id: '17',
-    name: "personalized keychain",
+    name: "personalized keychain per piece",
     price: 550,
     category: "keepsakes",
     image: "https://i.pinimg.com/1200x/5d/52/19/5d5219964b77793e6746ffd4661a2f0e.jpg", 
@@ -309,7 +311,7 @@ export const products: Product[] = [
    {
     id: '38',
     name: "ferrero rocher chocolate T16 200gm",
-    price: 2400,
+    price: 3000,
     category: "chocolates",
     image: "https://i.pinimg.com/736x/3f/6e/74/3f6e747cbd2415d674de5a90c5d40521.jpg", 
     description: "Ferrero Rocher Chocolate 200gm.",
@@ -317,7 +319,7 @@ export const products: Product[] = [
    {
     id: '39',
     name: "ferrero rocher chocolate T3 37.5gm",
-    price: 560,
+    price: 600,
     category: "chocolates",
     image: "https://i.pinimg.com/736x/22/35/3c/22353c4d8daae309341a099987a30500.jpg", 
     description: "Ferrero Rocher Chocolate 37.5gm.",
@@ -328,7 +330,7 @@ export const products: Product[] = [
     price: 3400,
     category: "keepsakes",
     image: "/3box.jpeg", 
-    description: "Make a grand impression with this spacious three-bottle case. The ultimate choice for a complete tasting collection or luxurious gift.",
+    description: "Elevate the unboxing. Our handcrafted teak box features three spacious compartments for wine, treats, or treasures. Tell us what you want to say, and we’ll laser-etch it into the wood for a finish that never fades.",
   },
   {
     id: '41',
@@ -336,7 +338,7 @@ export const products: Product[] = [
     price: 2700,
     category: "keepsakes",
     image: "/2box.jpeg", 
-    description: "Double the elegance with this beautifully crafted box. Ideal for gifting a 'His & Hers' set or a classic Red & White pairing..",
+    description: "Upgrade your Valentine’s toast. One side for the wine, one for the extras, and a lid that says it all. We’ll laser-engrave your custom message directly into the teak for a sophisticated, permanent finish. Just add the wine; we’ll handle the \"wow\" factor.",
   },
   {
     id: '42',
@@ -344,7 +346,62 @@ export const products: Product[] = [
     price: 2500,
     category: "keepsakes",
     image: "https://i.pinimg.com/736x/b1/e9/32/b1e932b3b783ad545691935108e93512.jpg", 
-    description: "A sleek and sophisticated wooden presentation box designed to showcase a single special bottle. Perfect for elevating a premium vintage.",
+    description: "A bottle deserves better than a bag. Turn a great wine into a personalized heirloom with our solid teak single-compartment box. Custom-engraved with your unique message, it ensures the first impression is just as good as the first sip.",
   },
-  
+   {
+    id: '43',
+    name: "keychain with leather strap per piece ",
+    price: 700,
+    category: "keepsakes",
+    image: "/key.jpeg", 
+    description: "Sophistication in the palm of your hand. Crafted with premium leather and robust hardware, this keychain blends durability with timeless style. The perfect small accessory for the modern gentleman or lady.",
+  },
+  {
+    id: '44',
+    name: "rafaello chocolate T3 ",
+    price: 550,
+    category: "chocolates",
+    image: "https://cdn11.bigcommerce.com/s-tgrcca6nho/images/stencil/1280w/products/15063/32459/buy-raffaello-t3-chocolatenepal__09958.1733221855.jpg", 
+    description: "A white dream in three bites. A crunchy white almond surrounded by velvety smooth cream, encased in a crispy wafer shell and dusted with delicate coconut flakes",
+  },
+  {
+    id: '45', 
+    name: "Luminous LED Glow Bear",
+    price: 2000,
+    category: "teddy_bears",
+    image: "/ledt.jpeg",
+    description: "Light up their world! This enchanting white teddy glows with soft, changing colors from within. A magical and comforting gift that brightens up any room."
+},
+{
+    id: '46',
+    name: "Giant Premium Pink Teddy",
+    price: 4000, 
+    category: "teddy_bears",
+    image: "/pinkt.jpeg",
+    description: "Go BIG with your love. This oversized, ultra-soft pink teddy offers the ultimate hug. Finished with a classic plaid bow, it's a grand gesture they won't forget."
+},
+{
+    id: '47',
+    name: "Classic 'I Love You' Bear",
+    price: 3000, 
+    category: "teddy_bears",
+    image: "/ily.jpeg",
+    description: "Say it loud and clear. This cuddly plush holds a vibrant heart embroidered with 'I Love You'. The perfect, timeless messenger for your feelings."
+},
+{
+    id: '48',
+    name: "The 'Loads of Love' Hamper",
+    price: 5500, 
+    category: "hampers",
+    image: "/pack.jpeg",
+    description: "Unbox pure happiness. A beautifully curated floral box containing a sweater-wearing teddy, premium Ferrero Rocher chocolates, a glass tea mug, and a scented rose candle."
+},
+{
+    id: '49',
+    name: "Trendy Pink Bear with Hat",
+    price: 2500,
+    category: "teddy_bears",
+    image: "/smt.jpeg",
+    description: "Cute factor overload! This unique pink bear comes styled with a matching bucket hat and an embroidered tulip heart. A stylish twist on a classic gift."
+},
 ];

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 
 // Add the new categories to the Type definition here too
-type Category = 'all' | 'budget' | 'hampers' | 'digital' | 'Wines' | 'Services' | 'packages' | 'keepsakes' | 'flowers' | 'teddy_bears';
+type Category = 'all' | 'hampers' | 'digital' | 'Wines' | 'Services' | 'packages' | 'keepsakes' | 'flowers' | 'teddy_bears' | 'chocolates';
 
 interface FilterButtonsProps {
   activeFilter: Category;
@@ -12,7 +12,6 @@ const FilterButtons = ({ activeFilter, onFilterChange }: FilterButtonsProps) => 
   // Define your buttons here. The 'id' must match the Category type exactly.
   const categories: { id: Category; label: string }[] = [
     { id: 'all', label: 'All Gifts' },
-    { id: 'budget', label: 'Budget (<500)' },
     { id: 'packages', label: 'Packages' },
     { id: 'hampers', label: 'Hampers' },
     { id: 'flowers', label: '🌹 Flowers' },         // <-- NEW BUTTON
@@ -20,6 +19,8 @@ const FilterButtons = ({ activeFilter, onFilterChange }: FilterButtonsProps) => 
     { id: 'Wines', label: 'Wines' },
     { id: 'keepsakes', label: 'Keepsakes' },
     { id: 'digital', label: 'Digital' },
+    { id: 'chocolates', label: 'Chocolates' },     // <-- NEW BUTTON
+    { id: 'Services', label: 'Services' },
   ];
 
   return (

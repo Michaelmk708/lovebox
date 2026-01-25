@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Plus, Heart, Sparkles, Crown } from 'lucide-react';
+import { Plus, Heart, Sparkles, Crown, Info, X, MessageCircle } from 'lucide-react'; // 👈 Added MessageCircle
 import { Product } from '@/data/products';
 import { useCart } from '@/context/CartContext';
 import { formatPrice } from '@/utils/whatsapp';
@@ -14,36 +14,37 @@ interface ProductCardProps {
 const ProductCard = ({ product, index }: ProductCardProps) => {
   const { addToCart } = useCart();
   const [isLiked, setIsLiked] = useState(false);
+  const [showFullDesc, setShowFullDesc] = useState(false);
   
   const isPremium = product.category === 'digital' || product.price >= 2500;
+  const isKeepsake = product.category === 'keepsakes'; // 👈 Check for keepsake
 
   // Helper to get the display label for categories
   const getCategoryLabel = (cat: string) => {
-    if (cat === 'budget') return '💝 Under 500';
+    if (cat === 'budget') return '💝 budget';
     if (cat === 'hampers') return '🎁 Luxury Hamper';
     if (cat === 'digital') return '✨ Digital Gift';
     if (cat === 'keepsakes') return '🧸 Keepsake';
-    // Fallback: Capitalize the category name (e.g. "Flowers")
     return `🌹 ${cat.charAt(0).toUpperCase() + cat.slice(1)}`;
   };
 
   return (
     <motion.div
+      layout 
       initial={{ opacity: 0, y: 30, scale: 0.95 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ 
-        duration: 0.5, 
-        delay: index * 0.1,
-        ease: [0.25, 0.46, 0.45, 0.94]
+        layout: { duration: 0.3, ease: "easeInOut" },
+        opacity: { duration: 0.5, delay: index * 0.1 }
       }}
       whileHover={{ y: -8 }}
-      className={`group relative bg-card rounded-2xl overflow-hidden transition-all duration-500 ${
+      className={`group relative bg-card rounded-2xl overflow-hidden transition-all duration-500 flex flex-col ${
         isPremium 
           ? 'shadow-[0_8px_40px_-12px_rgba(225,29,72,0.25)] hover:shadow-[0_20px_60px_-15px_rgba(225,29,72,0.4)]' 
           : 'shadow-card hover:shadow-elevated'
       }`}
     >
-      {/* Premium shimmer border effect */}
+      {/* Premium Effects */}
       {isPremium && (
         <motion.div
           className="absolute inset-0 rounded-2xl pointer-events-none z-10"
@@ -51,24 +52,13 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
             background: 'linear-gradient(135deg, transparent 40%, rgba(225,29,72,0.3) 50%, transparent 60%)',
             backgroundSize: '200% 200%',
           }}
-          animate={{
-            backgroundPosition: ['0% 0%', '200% 200%'],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
+          animate={{ backgroundPosition: ['0% 0%', '200% 200%'] }}
+          transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
         />
       )}
 
-      {/* Premium golden glow overlay */}
-      {isPremium && (
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-pink-200/10 pointer-events-none z-0" />
-      )}
-
-      <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-secondary to-pink-50">
-        {/* Image with smooth zoom */}
+      {/* Image Section */}
+      <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-secondary to-pink-50 flex-shrink-0">
         <motion.img
           src={product.image}
           alt={product.name}
@@ -78,10 +68,8 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
           transition={{ duration: 0.6, ease: 'easeOut' }}
         />
         
-        {/* Elegant overlay gradient */}
+        {/* Wishlist & Overlays */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-        {/* Wishlist button with animation */}
         <motion.button 
           onClick={() => setIsLiked(!isLiked)}
           whileTap={{ scale: 0.85 }}
@@ -101,117 +89,78 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
           </motion.div>
         </motion.button>
         
-        {/* Category badges */}
+        {/* Badges */}
         {product.category === 'budget' && (
-          <motion.span 
-            initial={{ x: -20, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.3 + index * 0.1 }}
-            className="absolute top-3 left-3 px-3 py-1.5 bg-emerald-500 text-white text-xs font-semibold rounded-full shadow-lg"
-          >
-            ✨ Best Value
-          </motion.span>
+          <span className="absolute top-3 left-3 px-3 py-1.5 bg-emerald-500 text-white text-xs font-semibold rounded-full shadow-lg">✨ Best Value</span>
         )}
-        
         {isPremium && (
-          <motion.div
-            initial={{ x: -20, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.3 + index * 0.1 }}
-            className="absolute top-3 left-3 flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-amber-500 to-amber-600 text-white text-xs font-semibold rounded-full shadow-lg shadow-amber-500/30"
-          >
-            <Crown className="w-3.5 h-3.5" />
-            Premium
-          </motion.div>
-        )}
-
-        {/* Floating sparkles for premium items */}
-        {isPremium && (
-          <>
-            <motion.div
-              animate={{ 
-                y: [0, -8, 0],
-                opacity: [0.5, 1, 0.5],
-                scale: [1, 1.2, 1]
-              }}
-              transition={{ duration: 2, repeat: Infinity, delay: 0 }}
-              className="absolute bottom-4 right-4 text-amber-400"
-            >
-              <Sparkles className="w-5 h-5" />
-            </motion.div>
-            <motion.div
-              animate={{ 
-                y: [0, -6, 0],
-                opacity: [0.3, 0.8, 0.3],
-                scale: [1, 1.1, 1]
-              }}
-              transition={{ duration: 2.5, repeat: Infinity, delay: 0.5 }}
-              className="absolute bottom-8 right-10 text-primary/60"
-            >
-              <Sparkles className="w-3 h-3" />
-            </motion.div>
-          </>
+          <div className="absolute top-3 left-3 flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-amber-500 to-amber-600 text-white text-xs font-semibold rounded-full shadow-lg shadow-amber-500/30">
+            <Crown className="w-3.5 h-3.5" /> Premium
+          </div>
         )}
       </div>
 
-      <div className="relative p-5">
-        {/* Category label - UPDATED LOGIC HERE */}
-        <motion.p 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 + index * 0.1 }}
-          className={`text-xs uppercase tracking-widest mb-2 font-medium ${
-            isPremium ? 'text-primary' : 'text-muted-foreground'
-          }`}
-        >
+      <div className="relative p-5 flex flex-col flex-grow">
+        {/* Category */}
+        <p className={`text-xs uppercase tracking-widest mb-2 font-medium ${isPremium ? 'text-primary' : 'text-muted-foreground'}`}>
           {getCategoryLabel(product.category)}
-        </motion.p>
+        </p>
         
-        {/* Product name with elegant typography */}
-        <h3 className={`font-serif text-xl font-semibold mb-2 transition-colors duration-300 ${
-          isPremium 
-            ? 'text-card-foreground group-hover:text-primary' 
-            : 'text-card-foreground'
-        }`}>
+        {/* Name */}
+        <h3 className={`font-serif text-xl font-semibold mb-2 ${isPremium ? 'text-card-foreground group-hover:text-primary' : 'text-card-foreground'}`}>
           {product.name}
         </h3>
         
         {/* Description */}
-        <p className="text-sm text-muted-foreground mb-4 line-clamp-2 leading-relaxed">
-          {product.description}
-        </p>
+        <motion.div layout className="mb-3 relative">
+            <motion.p layout className={`text-sm text-muted-foreground leading-relaxed ${!showFullDesc ? 'line-clamp-2' : ''}`}>
+                {product.description}
+            </motion.p>
+        </motion.div>
 
-        {/* Price and CTA */}
-        <div className="flex items-center justify-between gap-3">
+        {/* 👇 NEW: Keepsake Customization Message */}
+        {isKeepsake && (
+            <div className="mb-4 p-3 bg-amber-50 border border-amber-100 rounded-xl flex items-start gap-3">
+                <div className="bg-amber-100 p-1.5 rounded-full text-amber-600 mt-0.5">
+                    <MessageCircle className="w-4 h-4" />
+                </div>
+                <div>
+                    <p className="text-xs font-bold text-amber-800 uppercase tracking-wide mb-0.5">
+                        Personalize It! ✍️
+                    </p>
+                    <p className="text-xs text-amber-700 leading-tight">
+                        WhatsApp us your custom name/caption after ordering.
+                    </p>
+                </div>
+            </div>
+        )}
+
+        <div className="flex-grow" />
+
+        {/* Price & Actions */}
+        <div className="flex items-end justify-between gap-2 pt-2">
           <div className="flex flex-col">
-            <span className={`text-2xl font-bold tracking-tight ${
-              isPremium 
-                ? 'bg-gradient-to-r from-primary to-pink-500 bg-clip-text text-transparent' 
-                : 'text-primary'
-            }`}>
+            <span className={`text-2xl font-bold tracking-tight ${isPremium ? 'bg-gradient-to-r from-primary to-pink-500 bg-clip-text text-transparent' : 'text-primary'}`}>
               {formatPrice(product.price)}
             </span>
-            {isPremium && (
-              <span className="text-[10px] text-muted-foreground uppercase tracking-wide">
-                Exclusive Offer
-              </span>
-            )}
           </div>
           
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Button
-              onClick={() => addToCart(product)}
-              size="sm"
-              className={`btn-touch gap-1.5 font-semibold transition-all duration-300 ${
-                isPremium 
-                  ? 'bg-gradient-to-r from-primary to-pink-500 hover:from-primary/90 hover:to-pink-500/90 shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30' 
-                  : ''
-              }`}
+          <div className="flex gap-2">
+            {/* Info Button */}
+            <Button 
+                variant="outline" size="icon" onClick={() => setShowFullDesc(!showFullDesc)}
+                className={`w-9 h-9 rounded-full transition-colors ${showFullDesc ? 'border-primary text-primary bg-primary/10' : 'text-muted-foreground hover:text-primary'}`}
             >
-              <Plus className="w-4 h-4" />
-              Add to Cart
+                {showFullDesc ? <X className="w-4 h-4" /> : <Info className="w-4 h-4" />}
             </Button>
-          </motion.div>
+
+            {/* Add Button */}
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button onClick={() => addToCart(product)} size="sm" className="btn-touch gap-1.5 font-semibold h-9">
+                    <Plus className="w-4 h-4" /> Add
+                </Button>
+            </motion.div>
+          </div>
         </div>
       </div>
     </motion.div>

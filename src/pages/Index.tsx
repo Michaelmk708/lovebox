@@ -10,7 +10,7 @@ import PremiumShowcase from '@/components/PremiumShowcase';
 import { products } from '@/data/products';
 import { Heart, ArrowRight, PackageOpen } from 'lucide-react';
 
-// 1. UPDATED CATEGORIES: Added 'flowers' and 'teddy_bears'
+// 1. UPDATED CATEGORIES
 type Category = 'all' | 'budget' | 'hampers' | 'digital' | 'Wines' | 'Services' | 'packages' | 'keepsakes' | 'flowers' | 'teddy_bears';
 
 // --- HELPER COMPONENT: The "Coming Soon" Teaser Card ---
@@ -108,7 +108,6 @@ const Index = () => {
             </p>
           </div>
 
-          {/* Filter Buttons (Make sure your FilterButtons component accepts these new categories!) */}
           <FilterButtons 
             activeFilter={activeFilter} 
             onFilterChange={setActiveFilter} 
@@ -123,13 +122,7 @@ const Index = () => {
               transition={{ duration: 0.3 }}
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
             >
-              {/* --- SCENARIO 1: FLOWER TAB SELECTED --- */}
-              {activeFilter === 'flowers' && <ComingSoonTeaser category="flowers" />}
-
-              {/* --- SCENARIO 2: TEDDY BEAR TAB SELECTED --- */}
-              {activeFilter === 'teddy_bears' && <ComingSoonTeaser category="teddy_bears" />}
-
-              {/* --- SCENARIO 3: BUILD YOUR OWN HAMPER CARD --- */}
+              {/* --- SCENARIO 1: BUILD YOUR OWN HAMPER CARD --- */}
               {/* Show only on 'All', 'Packages', or 'Hampers' tabs */}
               {(activeFilter === 'all' || activeFilter === 'packages' || activeFilter === 'hampers') && (
                 <motion.div 
@@ -160,23 +153,31 @@ const Index = () => {
                 </motion.div>
               )}
 
-              {/* --- SCENARIO 4: REGULAR PRODUCTS --- */}
-              {/* Only show products if we are NOT on the teaser tabs */}
-              {activeFilter !== 'flowers' && activeFilter !== 'teddy_bears' && filteredProducts.map((product, index) => (
-                <ProductCard key={product.id} product={product} index={index} />
-              ))}
+              {/* --- SCENARIO 2: PRODUCTS VS TEASER LOGIC --- */}
+              {/* Logic: If products exist, display them. If NO products exist, check if we need to show a teaser. */}
+              
+              {filteredProducts.length > 0 ? (
+                // 🟢 CASE A: We have products! Show them.
+                filteredProducts.map((product, index) => (
+                  <ProductCard key={product.id} product={product} index={index} />
+                ))
+              ) : (
+                // 🔴 CASE B: No products found. Show Teaser OR Empty State.
+                <>
+                  {activeFilter === 'flowers' && <ComingSoonTeaser category="flowers" />}
+                  {activeFilter === 'teddy_bears' && <ComingSoonTeaser category="teddy_bears" />}
+                  
+                  {/* If it's empty but NOT a special teaser tab, show generic message */}
+                  {activeFilter !== 'flowers' && activeFilter !== 'teddy_bears' && activeFilter !== 'packages' && (
+                    <div className="col-span-full text-center py-12">
+                      <p className="text-muted-foreground">No products found in this category yet.</p>
+                    </div>
+                  )}
+                </>
+              )}
+
             </motion.div>
           </AnimatePresence>
-
-          {/* Empty State (Only if not on special tabs) */}
-          {filteredProducts.length === 0 && 
-           activeFilter !== 'flowers' && 
-           activeFilter !== 'teddy_bears' && 
-           activeFilter !== 'packages' && (
-            <div className="text-center py-12">
-              <p className="text-muted-foreground">No products found in this category.</p>
-            </div>
-          )}
         </div>
       </section>
 
