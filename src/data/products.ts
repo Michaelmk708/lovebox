@@ -59,14 +59,14 @@ export const products: Product[] = [
     image: 'https://i.pinimg.com/736x/89/06/79/8906792d9aec1b30d9e4846108d0b283.jpg',
     description: 'Animated digital greeting card with personalized message and music.'
   },
-  {
+  /*{
     id: '7',
     name: 'Scented Candle Set',
     price: 480,
     category: 'budget',
     image: 'https://i.pinimg.com/736x/7a/a1/96/7aa19681df57999da2004d355233b54d.jpg',
     description: 'Set of 3 romantic scented candles - rose, vanilla, and lavender.'
-  },
+  },*/
  {
     id: '8',
     name: "The 'Classic Date' Bottle (Sweet Red)",
