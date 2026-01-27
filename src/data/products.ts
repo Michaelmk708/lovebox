@@ -34,7 +34,7 @@ export const products: Product[] = [
     image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=400&fit=crop',
     description: 'A personalized love story website with photos, music, and memories.'
   },
-  {
+ /* {
     id: '4',
     name: 'Chocolate Heart Box',
     price: 900,
@@ -42,7 +42,7 @@ export const products: Product[] = [
     image: 'https://i.pinimg.com/736x/bf/de/ec/bfdeec4dc7ff76ab2310f9d48c846957.jpg',
     description: 'Premium Belgian chocolates arranged in a heart-shaped box.'
   },
-  
+  */
   {
     id: '5',
     name: 'Teddy Bear & Roses',
