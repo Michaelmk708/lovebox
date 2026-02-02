@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 
 // Add the new categories to the Type definition here too
-type Category = 'all' | 'hampers' | 'digital' | 'Wines' | 'Services' | 'packages' | 'keepsakes' | 'flowers' | 'teddy_bears' | 'chocolates';
+type Category = 'all' | 'hampers' | 'digital' | 'Wines' | 'Services' | 'packages' | 'keepsakes' | 'flowers' | 'teddy_bears' | 'chocolates'| 'watches';
 
 interface FilterButtonsProps {
   activeFilter: Category;
@@ -21,6 +21,7 @@ const FilterButtons = ({ activeFilter, onFilterChange }: FilterButtonsProps) => 
     { id: 'digital', label: 'Digital' },
     { id: 'chocolates', label: 'Chocolates' },     // <-- NEW BUTTON
     { id: 'Services', label: 'Services' },
+    { id: 'watches', label: 'Watches' },
   ];
 
   return (

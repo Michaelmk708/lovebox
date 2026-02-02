@@ -4,7 +4,7 @@ export interface Product {
   id: string;
   name: string;
   price: number;
-  category: 'budget' | 'hampers' | 'digital' | 'Wines' | 'Services' | 'packages' | 'keepsakes' | 'perfumes'| 'chocolates' |"teddy_bears" | "flowers";
+  category: 'budget' | 'hampers' | 'digital' | 'Wines' | 'Services' | 'packages' | 'keepsakes' | 'perfumes'| 'chocolates' |"teddy_bears" | "flowers" | "watches";
   image: string;
   description: string;
 }
@@ -46,7 +46,7 @@ export const products: Product[] = [
   {
     id: '5',
     name: 'Teddy Bear & Roses',
-    price: 1200,
+    price: 3200,
     category: 'hampers',
     image: 'https://i.pinimg.com/736x/ed/49/b6/ed49b6655caaeaaf80c8a082e02aa1fc.jpg',
     description: 'Adorable plush teddy bear with a bouquet of fresh red roses.'
@@ -404,4 +404,100 @@ export const products: Product[] = [
     image: "/smt.jpeg",
     description: "Cute factor overload! This unique pink bear comes styled with a matching bucket hat and an embroidered tulip heart. A stylish twist on a classic gift."
 },
+{
+    id: '50',
+    name: "The 'Black Ops' Tactical Set",
+    price: 1000,
+    category: "watches",
+    image: "/images/800.jpeg",
+    description: "A rugged 6-piece gift set for the modern man. Includes a military-style canvas strap watch, four distinct leather & bead bracelets, and a black cross pendant necklace."
+  },
+  {
+    id: '51',
+    name: "Deyros Silver Speedmaster",
+    price: 600,
+    category: "watches",
+    image: "/images/300.jpeg",
+    description: "A bold statement piece. Polished silver stainless steel link watch with a high-contrast black dial, red accents, and chronograph-style decorative sub-dials."
+  },
+  {
+    id: '52',
+    name: "Yazole Blue-Ray Executive (Black)",
+    price: 600,
+    category: "watches",
+    image: "/images/3001.jpeg",
+    description: "Sophistication meets style. Features distinctive blue-tinted glass that shimmers in the light, paired with a sleek black dial and textured black leather strap."
+  },
+  {
+    id: '53',
+    name: "Yazole Blue-Ray Executive (Brown)",
+    price: 600,
+    category: "watches",
+    image: "/images/3002.jpeg",
+    description: "Classic elegance. A white dial with bold numerals under shimmering blue-tinted glass, finished with a rich brown leather strap perfect for office or casual wear."
+  },
+  {
+    id: '54',
+    name: "Geneva Midnight Link Set",
+    price: 750,
+    category: "watches",
+    image: "/images/500.jpeg",
+    description: "Stealth luxury. An all-black metal link watch with striking blue hour markers, boxed with a matching heavy-duty black Cuban chain bracelet."
+  },
+  {
+    id: '55',
+    name: "Geneva Silver Link Set",
+    price: 750,
+    category: "watches",
+    image: "/images/5001.jpeg",
+    description: "Timeless shine. A polished silver metal link watch with a black face and blue accents, paired with a matching silver Cuban chain bracelet."
+  },
+  {
+    id: '56',
+    name: "The 'Aviator' Anchor Set",
+    price: 600,
+    category: "watches",
+    image: "/images/3003.jpeg",
+    description: "Ready for adventure. A matte black pilot-style watch with clear white numerals, accompanied by a nautical anchor leather cuff and a beaded bracelet."
+  },
+  {
+    id: '57',
+    name: "The 'Geo' Triangle Watch",
+    price: 600,
+    category: "watches",
+    image: "/images/3004.jpeg",
+    description: "For the trendsetter. An artistic timepiece featuring a unique abstract triangle and gear design on the dial, finished with a silver and black metal link band."
+  },
+  {
+    id: '58',
+    name: "Geneva Noir Stack Set",
+    price: 750,
+    category: "watches",
+    image: "/images/5002.jpeg",
+    description: "The ultimate wrist stack. A slim, minimalist black watch with a split-texture dial, boxed with four complementary black leather and beaded bracelets."
+  },
+  {
+    id: '59',
+    name: "Geneva Mocha Stack Set",
+    price: 750,
+    category: "watches",
+    image: "/images/5003.jpeg",
+    description: "Earth tones done right. A slim rose-gold and black watch paired with four matching brown and black braided leather bracelets."
+  },
+  {
+        id: '60',
+        name: "Blushing Pink Sequin-Heart Teddy per piece",
+        price: 1700,
+        category: "teddy_bears",
+        image: "/images/1500.jpeg",
+        description: "A soft, cream-colored plush bear holding a decorative heart with red sequins. A cute and cuddly standalone gift for any occasion."
+    },
+    {
+        id: '61',
+        name: "Crimson Love Red Teddy Bear",
+        price: 2500,
+        category: "teddy_bears",
+        image: "/images/2200.jpeg",
+        description: "A vibrant deep red plush teddy bear holding a contrasting white heart with sequin details. A bold and romantic gift. (Teddy bear only)."
+    }
 ];
