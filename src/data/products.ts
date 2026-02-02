@@ -367,7 +367,7 @@ export const products: Product[] = [
   {
     id: '45', 
     name: "Luminous LED Glow Bear",
-    price: 2000,
+    price: 1200,
     category: "teddy_bears",
     image: "/ledt.jpeg",
     description: "Light up their world! This enchanting white teddy glows with soft, changing colors from within. A magical and comforting gift that brightens up any room."
@@ -383,7 +383,7 @@ export const products: Product[] = [
 {
     id: '47',
     name: "Classic 'I Love You' Bear",
-    price: 3000, 
+    price: 2000, 
     category: "teddy_bears",
     image: "/ily.jpeg",
     description: "Say it loud and clear. This cuddly plush holds a vibrant heart embroidered with 'I Love You'. The perfect, timeless messenger for your feelings."
@@ -499,5 +499,21 @@ export const products: Product[] = [
         category: "teddy_bears",
         image: "/images/2200.jpeg",
         description: "A vibrant deep red plush teddy bear holding a contrasting white heart with sequin details. A bold and romantic gift. (Teddy bear only)."
+    },
+    {
+        id: '62',
+        name: "Classic Half & Half Love Heart",
+        price: 9500,
+        category: "hampers",
+        image: "/images/9000.jpeg",
+        description: "A beautifully arranged heart-shaped box featuring a perfect split of romance and sweetness. One half is filled with fresh, vibrant red roses, while the other holds premium golden Ferrero Rocher chocolates."
+    },
+    {
+        id: '63',
+        name: "Luxury Black Heart Grand Box",
+        price: 12000,
+        category: "hampers",
+        image: "/images/11500.jpeg",
+        description: "The ultimate gesture of love. A large, elegant black heart-shaped box featuring a bed of deep red roses surrounding a central heart of Ferrero Rocher chocolates. Finished with a red satin ribbon."
     }
 ];
