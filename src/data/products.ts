@@ -515,5 +515,15 @@ export const products: Product[] = [
         category: "hampers",
         image: "/images/11500.jpeg",
         description: "The ultimate gesture of love. A large, elegant black heart-shaped box featuring a bed of deep red roses surrounding a central heart of Ferrero Rocher chocolates. Finished with a red satin ribbon."
+    },
+    
+    {
+        id: '64',
+        name: "Single Premium Red Rose",
+        price: 220,
+        category: "flowers",
+        image: "https://i.pinimg.com/736x/41/e4/f2/41e4f2dd4f243346053fb381c2a18c83.jpg",
+        description: "A timeless gesture of affection. A single, fresh, long-stemmed red rose with vibrant petals and rich green leaves. Simple, elegant, and perfect for expressing love."
     }
+
 ];
