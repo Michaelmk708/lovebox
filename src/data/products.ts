@@ -524,6 +524,40 @@ export const products: Product[] = [
         category: "flowers",
         image: "https://i.pinimg.com/736x/41/e4/f2/41e4f2dd4f243346053fb381c2a18c83.jpg",
         description: "A timeless gesture of affection. A single, fresh, long-stemmed red rose with vibrant petals and rich green leaves. Simple, elegant, and perfect for expressing love."
+    },
+    
+    {
+        id: '65',
+        name: "15 Red Roses with Fillers",
+        price: 2700,
+        category: "flowers",
+        image: "/images/2450.jpeg",
+        description: "A classic romantic gesture. 15 fresh red roses beautifully arranged with delicate white fillers wrapped in elegant paper."
+    },
+    {
+        id: '66',
+        name: "30 Mixed Colour Roses",
+        price: 4800,
+        category: "flowers",
+        image: "/images/4500.jpeg",
+        description: "A vibrant mix of affection. 30 lush stems of red and pink roses arranged with Baby's Breath fillers for a full, voluminous look."
+    },
+    {
+        id: '67',
+        name: "40 Glitter Roses Edition",
+        price: 6000,
+        category: "flowers",
+        image: "/images/5600.jpeg",
+        description: "Sparkle and shine. 40 premium red roses dusted with gold glitter and arranged with fillers. A unique and dazzling choice for Valentine's."
+    },
+    {
+        id: '68',
+        name: "50 Mixed Red & White Roses",
+        price: 7800,
+        category: "flowers",
+        image: "/images/7500.jpeg",
+        description: "The ultimate grand gesture. A massive bouquet of 50 fresh red and white roses, accented with green berries and premium fillers."
     }
+
 
 ];
