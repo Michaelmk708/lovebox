@@ -404,6 +404,7 @@ export const products: Product[] = [
     image: "/smt.jpeg",
     description: "Cute factor overload! This unique pink bear comes styled with a matching bucket hat and an embroidered tulip heart. A stylish twist on a classic gift."
 },
+/*
 {
     id: '50',
     name: "The 'Black Ops' Tactical Set",
@@ -476,7 +477,8 @@ export const products: Product[] = [
     image: "/images/5002.jpeg",
     description: "The ultimate wrist stack. A slim, minimalist black watch with a split-texture dial, boxed with four complementary black leather and beaded bracelets."
   },
-  {
+  
+ {
     id: '59',
     name: "Geneva Mocha Stack Set",
     price: 750,
@@ -484,6 +486,7 @@ export const products: Product[] = [
     image: "/images/5003.jpeg",
     description: "Earth tones done right. A slim rose-gold and black watch paired with four matching brown and black braided leather bracelets."
   },
+  */
   {
         id: '60',
         name: "Blushing Pink Sequin-Heart Teddy per piece",

@@ -83,9 +83,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* --- URGENCY BANNER --- */}
-      <div className="bg-red-600 text-white text-xs md:text-sm font-bold text-center py-2 px-4 sticky top-0 z-50">
-        ⚠️ ORDER DEADLINE: All orders require a 50% deposit by Feb 10th to confirm!
-      </div>
+
       
       <Navbar />
       <Hero />
