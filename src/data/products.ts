@@ -138,7 +138,7 @@ export const products: Product[] = [
     price: 1800,
     category: "packages",
     image: "https://i.pinimg.com/736x/54/63/e5/5463e55f01317109f8eda6b6d72fb9d1.jpg", 
-    description: "A cute medium-sized Teddy Bear holding a bouquet of roses. The gift that stays on her bed forever.",
+    description: "A cute medium-sized Teddy Bear holding 3 roses. The gift that stays on her bed forever.",
   },
   {
     id: '17',
