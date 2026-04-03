@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Plus, Minus, ShoppingBag, Trash2, AlertCircle } from 'lucide-react';
+import { X, Plus, Minus, ShoppingBag, Trash2 } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { formatPrice } from '@/utils/whatsapp';
 import { Button } from '@/components/ui/button';
@@ -8,9 +8,6 @@ import { useNavigate } from 'react-router-dom';
 const CartDrawer = () => {
   const { items, isCartOpen, setIsCartOpen, updateQuantity, removeFromCart, totalPrice, clearCart } = useCart();
   const navigate = useNavigate();
-
-  // --- BUSINESS LOGIC: 50% DEPOSIT ---
-  const depositAmount = totalPrice / 2;
 
   const handleCheckout = () => {
     // Close the drawer first
@@ -122,34 +119,22 @@ const CartDrawer = () => {
               )}
             </div>
 
-            {/* Footer with DEPOSIT LOGIC */}
+            {/* Footer with FULL PAYMENT LOGIC */}
             {items.length > 0 && (
               <div className="border-t border-border p-4 space-y-4">
                 
                 {/* Price Breakdown */}
                 <div className="space-y-2">
-                  <div className="flex items-center justify-between text-muted-foreground text-sm">
-                    <span>Subtotal</span>
-                    <span>{formatPrice(totalPrice)}</span>
-                  </div>
-                  
-                  {/* --- THE IMPORTANT DEPOSIT BOX --- */}
-                  <div className="bg-rose-50 border border-rose-200 rounded-lg p-3 space-y-1">
-                    <div className="flex items-center justify-between text-rose-700">
-                      <span className="font-bold text-sm">Deposit Due Now (50%)</span>
-                      <span className="font-bold text-lg">{formatPrice(depositAmount)}</span>
-                    </div>
-                    <div className="flex items-start gap-1.5 text-xs text-rose-600/80">
-                      <AlertCircle className="w-3 h-3 mt-0.5 shrink-0" />
-                      <p>Required by Feb 10th to confirm order. Balance due on delivery.</p>
-                    </div>
+                  <div className="flex items-center justify-between text-lg font-bold">
+                    <span>Total to Pay:</span>
+                    <span className="text-primary">{formatPrice(totalPrice)}</span>
                   </div>
                 </div>
 
                 <Button
                   onClick={handleCheckout}
                   size="lg"
-                  className="w-full btn-touch text-lg gap-2 bg-rose-600 hover:bg-rose-700 text-white"
+                  className="w-full btn-touch text-lg gap-2 bg-indigo-600 hover:bg-indigo-700 text-white"
                 >
                   <ShoppingBag className="w-5 h-5" />
                   Proceed to Checkout

@@ -12,11 +12,11 @@ export interface Product {
 export const products: Product[] = [
   {
     id: '1',
-    name: 'wooden Love Letter Box',
+    name: 'wooden Memory Box',
     price: 2500,
     category: 'keepsakes',
     image: '/letterbox.jpeg',
-    description: 'A home for your "Reasons Why." Whether it\'s a stack of love letters or small romantic tokens, this engraved box makes the sentiment stay. We’ll laser-engrave your names or a custom note directly into the teak. Just add your letters; we’ll handle the "wow" factor.'
+    description: "A timeless keepsake for storing your cherished memories. Whether it's memorable notes, photos, or special tokens, this engraved box preserves what matters. We'll laser-engrave your names or custom message directly into teak. Just add your treasures; we'll handle the elegance."
   },
   {
     id: '2',
@@ -28,11 +28,11 @@ export const products: Product[] = [
   },
   {
     id: '3',
-    name: 'Custom Love Website',
+    name: 'Custom Gift Website',
     price: 3500,
     category: 'digital',
     image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=400&fit=crop',
-    description: 'A personalized love story website with photos, music, and memories.'
+    description: 'A personalized digital gift with photos, music, and memories. Perfect for commemorating special moments with someone special.'
   },
  /* {
     id: '4',
@@ -45,19 +45,19 @@ export const products: Product[] = [
   */
   {
     id: '5',
-    name: 'Teddy Bear & Roses',
+    name: 'Teddy Bear & Roses Bundle',
     price: 3200,
     category: 'hampers',
     image: 'https://i.pinimg.com/736x/ed/49/b6/ed49b6655caaeaaf80c8a082e02aa1fc.jpg',
-    description: 'Adorable plush teddy bear with a bouquet of fresh red roses.'
+    description: 'Adorable plush teddy bear paired with a beautiful bouquet of fresh roses. A cuddly gift that brings joy.'
   },
   {
     id: '6',
-    name: 'Digital Love Card',
+    name: 'Digital Greeting Card',
     price: 200,
     category: 'digital',
     image: 'https://i.pinimg.com/736x/89/06/79/8906792d9aec1b30d9e4846108d0b283.jpg',
-    description: 'Animated digital greeting card with personalized message and music.'
+    description: 'Animated digital greeting card with personalized message and background music. Send a special greeting instantly.'
   },
   /*{
     id: '7',
@@ -72,7 +72,7 @@ export const products: Product[] = [
     name: "The 'Classic Date' Bottle (Sweet Red)",
     price: 1200,
     category: "Wines",
-    image: "https://imgs.search.brave.com/0odtdYUfDUo_ucRf5jdZid4wFN6RpZ5JHnoi2-vvTFs/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jbXMu/Y2RuNHZlc3QuY29t/L2ltYWdlcy9zd2Vl/dC1yZWQtd2luZS1m/b3ItYmVnaW5uZXJz/LUJyYWNoZXR0by53/aWR0aC04MDAuanBn", // Use a generic wine image or specific brand
+    image: "https://imgs.search.brave.com/0odtdYUfDUo_ucRf5jdZid4wFN6RpZ5JHnoi2-vvTFs/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jbXMu/Y2RuNHZlc3QuY29t/L2ltYWdlcy9zd2Vl/dC1yZWQtd2luZS1m/b3ItYmVnaW5uZXJz/LUJyYWNoZXR0by53/aWR0aC04MDAuanBn", 
     description: "750ml Sweet Red Wine ( 4th Street). Perfect for sharing. *Strictly for persons over 18.*",
   },
   {
@@ -91,7 +91,6 @@ export const products: Product[] = [
     image: "https://media.istockphoto.com/id/1463587147/photo/bottle-of-red-wine-on-colored-background-for-valentine-day-with-gift-and-chocolate-heart.jpg?s=612x612&w=0&k=20&c=MGdbvX3Th-mVzUpDELmXKkeaPh5EMzB-WyYMS-HEEow=",
     description: "1 Bottle of Sweet Red Wine + 1 Large Bar of Dark Chocolate. A match made in heaven.",
   },
-  // --- CATEGORY 5: SURPRISE SERVICES (100% Profit) ---
   {
     id: '11',
     name: "Service: The 'Ghost' Delivery",
@@ -113,9 +112,9 @@ export const products: Product[] = [
     name: "Service: The 'Roommate' Setup",
     price: 200,
     category: "Services",
-    image: "https://i.pinimg.com/736x/f9/10/d9/f910d9afbc0d64807f00125c7bc774c5.jpg", // Use an image of a gift on a bed
+    image: "https://i.pinimg.com/736x/f9/10/d9/f910d9afbc0d64807f00125c7bc774c5.jpg", 
     description: "We coordinate with their roommate to place the gift on their bed before they get home. The ultimate surprise.",
-  },// --- CATEGORY 6: THE LOVE PACKAGES (Best Sellers) ---
+  },
   {
     id: '14',
     name: "The 'Wine & Dine' Trio",
@@ -371,196 +370,109 @@ export const products: Product[] = [
     category: "teddy_bears",
     image: "/ledt.jpeg",
     description: "Light up their world! This enchanting white teddy glows with soft, changing colors from within. A magical and comforting gift that brightens up any room."
-},
-{
+  },
+  {
     id: '46',
     name: "Giant Premium Pink Teddy",
     price: 4000, 
     category: "teddy_bears",
     image: "/pinkt.jpeg",
     description: "Go BIG with your love. This oversized, ultra-soft pink teddy offers the ultimate hug. Finished with a classic plaid bow, it's a grand gesture they won't forget."
-},
-{
+  },
+  {
     id: '47',
     name: "Classic 'I Love You' Bear",
     price: 2000, 
     category: "teddy_bears",
     image: "/ily.jpeg",
     description: "Say it loud and clear. This cuddly plush holds a vibrant heart embroidered with 'I Love You'. The perfect, timeless messenger for your feelings."
-},
-{
+  },
+  {
     id: '48',
     name: "The 'Loads of Love' Hamper",
     price: 5500, 
     category: "hampers",
     image: "/pack.jpeg",
     description: "Unbox pure happiness. A beautifully curated floral box containing a sweater-wearing teddy, premium Ferrero Rocher chocolates, a glass tea mug, and a scented rose candle."
-},
-{
+  },
+  {
     id: '49',
     name: "Trendy Pink Bear with Hat",
     price: 2500,
     category: "teddy_bears",
     image: "/smt.jpeg",
     description: "Cute factor overload! This unique pink bear comes styled with a matching bucket hat and an embroidered tulip heart. A stylish twist on a classic gift."
-},
-/*
-{
-    id: '50',
-    name: "The 'Black Ops' Tactical Set",
-    price: 1000,
-    category: "watches",
-    image: "/images/800.jpeg",
-    description: "A rugged 6-piece gift set for the modern man. Includes a military-style canvas strap watch, four distinct leather & bead bracelets, and a black cross pendant necklace."
   },
   {
-    id: '51',
-    name: "Deyros Silver Speedmaster",
-    price: 600,
-    category: "watches",
-    image: "/images/300.jpeg",
-    description: "A bold statement piece. Polished silver stainless steel link watch with a high-contrast black dial, red accents, and chronograph-style decorative sub-dials."
+    id: '60',
+    name: "Blushing Pink Sequin-Heart Teddy per piece",
+    price: 1700,
+    category: "teddy_bears",
+    image: "/images/1500.jpeg",
+    description: "A soft, cream-colored plush bear holding a decorative heart with red sequins. A cute and cuddly standalone gift for any occasion."
   },
   {
-    id: '52',
-    name: "Yazole Blue-Ray Executive (Black)",
-    price: 600,
-    category: "watches",
-    image: "/images/3001.jpeg",
-    description: "Sophistication meets style. Features distinctive blue-tinted glass that shimmers in the light, paired with a sleek black dial and textured black leather strap."
+    id: '61',
+    name: "Crimson Love Red Teddy Bear",
+    price: 2500,
+    category: "teddy_bears",
+    image: "/images/2200.jpeg",
+    description: "A vibrant deep red plush teddy bear holding a contrasting white heart with sequin details. A bold and romantic gift. (Teddy bear only)."
   },
   {
-    id: '53',
-    name: "Yazole Blue-Ray Executive (Brown)",
-    price: 600,
-    category: "watches",
-    image: "/images/3002.jpeg",
-    description: "Classic elegance. A white dial with bold numerals under shimmering blue-tinted glass, finished with a rich brown leather strap perfect for office or casual wear."
+    id: '62',
+    name: "Classic Half & Half Love Heart",
+    price: 9500,
+    category: "hampers",
+    image: "/images/9000.jpeg",
+    description: "A beautifully arranged heart-shaped box featuring a perfect split of romance and sweetness. One half is filled with fresh, vibrant red roses, while the other holds premium golden Ferrero Rocher chocolates."
   },
   {
-    id: '54',
-    name: "Geneva Midnight Link Set",
-    price: 750,
-    category: "watches",
-    image: "/images/500.jpeg",
-    description: "Stealth luxury. An all-black metal link watch with striking blue hour markers, boxed with a matching heavy-duty black Cuban chain bracelet."
+    id: '63',
+    name: "Luxury Black Heart Grand Box",
+    price: 12000,
+    category: "hampers",
+    image: "/images/11500.jpeg",
+    description: "The ultimate gesture of love. A large, elegant black heart-shaped box featuring a bed of deep red roses surrounding a central heart of Ferrero Rocher chocolates. Finished with a red satin ribbon."
   },
   {
-    id: '55',
-    name: "Geneva Silver Link Set",
-    price: 750,
-    category: "watches",
-    image: "/images/5001.jpeg",
-    description: "Timeless shine. A polished silver metal link watch with a black face and blue accents, paired with a matching silver Cuban chain bracelet."
+    id: '64',
+    name: "Single Premium Red Rose",
+    price: 220,
+    category: "flowers",
+    image: "https://i.pinimg.com/736x/41/e4/f2/41e4f2dd4f243346053fb381c2a18c83.jpg",
+    description: "A timeless gesture of affection. A single, fresh, long-stemmed red rose with vibrant petals and rich green leaves. Simple, elegant, and perfect for expressing love."
   },
   {
-    id: '56',
-    name: "The 'Aviator' Anchor Set",
-    price: 600,
-    category: "watches",
-    image: "/images/3003.jpeg",
-    description: "Ready for adventure. A matte black pilot-style watch with clear white numerals, accompanied by a nautical anchor leather cuff and a beaded bracelet."
+    id: '65',
+    name: "15 Red Roses with Fillers",
+    price: 2700,
+    category: "flowers",
+    image: "/images/2450.jpeg",
+    description: "A classic romantic gesture. 15 fresh red roses beautifully arranged with delicate white fillers wrapped in elegant paper."
   },
   {
-    id: '57',
-    name: "The 'Geo' Triangle Watch",
-    price: 600,
-    category: "watches",
-    image: "/images/3004.jpeg",
-    description: "For the trendsetter. An artistic timepiece featuring a unique abstract triangle and gear design on the dial, finished with a silver and black metal link band."
+    id: '66',
+    name: "30 Mixed Colour Roses",
+    price: 4800,
+    category: "flowers",
+    image: "/images/4500.jpeg",
+    description: "A vibrant mix of affection. 30 lush stems of red and pink roses arranged with Baby's Breath fillers for a full, voluminous look."
   },
   {
-    id: '58',
-    name: "Geneva Noir Stack Set",
-    price: 750,
-    category: "watches",
-    image: "/images/5002.jpeg",
-    description: "The ultimate wrist stack. A slim, minimalist black watch with a split-texture dial, boxed with four complementary black leather and beaded bracelets."
+    id: '67',
+    name: "40 Glitter Roses Edition",
+    price: 6000,
+    category: "flowers",
+    image: "/images/5600.jpeg",
+    description: "Sparkle and shine. 40 premium red roses dusted with gold glitter and arranged with fillers. A unique and dazzling choice for Valentine's."
   },
-  
- {
-    id: '59',
-    name: "Geneva Mocha Stack Set",
-    price: 750,
-    category: "watches",
-    image: "/images/5003.jpeg",
-    description: "Earth tones done right. A slim rose-gold and black watch paired with four matching brown and black braided leather bracelets."
-  },
-  */
   {
-        id: '60',
-        name: "Blushing Pink Sequin-Heart Teddy per piece",
-        price: 1700,
-        category: "teddy_bears",
-        image: "/images/1500.jpeg",
-        description: "A soft, cream-colored plush bear holding a decorative heart with red sequins. A cute and cuddly standalone gift for any occasion."
-    },
-    {
-        id: '61',
-        name: "Crimson Love Red Teddy Bear",
-        price: 2500,
-        category: "teddy_bears",
-        image: "/images/2200.jpeg",
-        description: "A vibrant deep red plush teddy bear holding a contrasting white heart with sequin details. A bold and romantic gift. (Teddy bear only)."
-    },
-    {
-        id: '62',
-        name: "Classic Half & Half Love Heart",
-        price: 9500,
-        category: "hampers",
-        image: "/images/9000.jpeg",
-        description: "A beautifully arranged heart-shaped box featuring a perfect split of romance and sweetness. One half is filled with fresh, vibrant red roses, while the other holds premium golden Ferrero Rocher chocolates."
-    },
-    {
-        id: '63',
-        name: "Luxury Black Heart Grand Box",
-        price: 12000,
-        category: "hampers",
-        image: "/images/11500.jpeg",
-        description: "The ultimate gesture of love. A large, elegant black heart-shaped box featuring a bed of deep red roses surrounding a central heart of Ferrero Rocher chocolates. Finished with a red satin ribbon."
-    },
-    
-    {
-        id: '64',
-        name: "Single Premium Red Rose",
-        price: 220,
-        category: "flowers",
-        image: "https://i.pinimg.com/736x/41/e4/f2/41e4f2dd4f243346053fb381c2a18c83.jpg",
-        description: "A timeless gesture of affection. A single, fresh, long-stemmed red rose with vibrant petals and rich green leaves. Simple, elegant, and perfect for expressing love."
-    },
-    
-    {
-        id: '65',
-        name: "15 Red Roses with Fillers",
-        price: 2700,
-        category: "flowers",
-        image: "/images/2450.jpeg",
-        description: "A classic romantic gesture. 15 fresh red roses beautifully arranged with delicate white fillers wrapped in elegant paper."
-    },
-    {
-        id: '66',
-        name: "30 Mixed Colour Roses",
-        price: 4800,
-        category: "flowers",
-        image: "/images/4500.jpeg",
-        description: "A vibrant mix of affection. 30 lush stems of red and pink roses arranged with Baby's Breath fillers for a full, voluminous look."
-    },
-    {
-        id: '67',
-        name: "40 Glitter Roses Edition",
-        price: 6000,
-        category: "flowers",
-        image: "/images/5600.jpeg",
-        description: "Sparkle and shine. 40 premium red roses dusted with gold glitter and arranged with fillers. A unique and dazzling choice for Valentine's."
-    },
-    {
-        id: '68',
-        name: "50 Mixed Red & White Roses",
-        price: 7800,
-        category: "flowers",
-        image: "/images/7500.jpeg",
-        description: "The ultimate grand gesture. A massive bouquet of 50 fresh red and white roses, accented with green berries and premium fillers."
-    }
-
-
+    id: '68',
+    name: "50 Mixed Red & White Roses",
+    price: 7800,
+    category: "flowers",
+    image: "/images/7500.jpeg",
+    description: "The ultimate grand gesture. A massive bouquet of 50 fresh red and white roses, accented with green berries and premium fillers."
+  }
 ];

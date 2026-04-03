@@ -13,10 +13,10 @@ const PremiumShowcase = ({ product }: PremiumShowcaseProps) => {
   const { addToCart } = useCart();
 
   const features = [
-    'Personalized love story timeline',
-    'Beautiful photo galleries',
-    'Background music integration',
-    'Forever accessible online',
+    'Personalized gift website with your story',
+    'Beautiful photo galleries and memories',
+    'Custom background music integration',
+    'Forever accessible online anytime',
   ];
 
   return (
@@ -41,10 +41,10 @@ const PremiumShowcase = ({ product }: PremiumShowcaseProps) => {
             <span className="text-sm font-semibold text-amber-600">Premium Experience</span>
           </div>
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-2">
-            Our Signature Gift
+            Our Signature Digital Gift
           </h2>
           <p className="text-muted-foreground">
-            The ultimate expression of your love story
+            A personalized digital keepsake for any occasion
           </p>
         </motion.div>
 
@@ -223,10 +223,10 @@ const PremiumShowcase = ({ product }: PremiumShowcaseProps) => {
                   {/* Trust badges */}
                   <div className="mt-6 pt-6 border-t border-primary/10 flex flex-wrap gap-4 text-xs text-muted-foreground">
                     <span className="flex items-center gap-1">
-                      <Heart className="w-3 h-3 text-primary" /> Handcrafted with Love
+                      <Heart className="w-3 h-3 text-primary" /> Crafted with Care
                     </span>
                     <span className="flex items-center gap-1">
-                      <Sparkles className="w-3 h-3 text-amber-500" /> Lifetime Access
+                      <Sparkles className="w-3 h-3 text-amber-500" /> Personalized & Unique
                     </span>
                   </div>
                 </motion.div>

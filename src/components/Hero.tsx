@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Heart, ArrowDown } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Hero = () => {
@@ -8,8 +8,8 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-[80vh] flex items-center justify-center bg-romantic overflow-hidden">
-      {/* Floating hearts decoration */}
+    <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-amber-50 via-white to-rose-50 overflow-hidden">
+      {/* Floating gift box decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(6)].map((_, i) => (
           <motion.div
@@ -30,10 +30,12 @@ const Hero = () => {
               top: `${20 + (i % 3) * 25}%`,
             }}
           >
-            <Heart
-              className="text-primary/20 fill-primary/10"
-              style={{ width: 20 + i * 8, height: 20 + i * 8 }}
-            />
+            <span
+              className="text-primary/20"
+              style={{ fontSize: 20 + i * 8 }}
+            >
+              🎁
+            </span>
           </motion.div>
         ))}
       </div>
@@ -45,18 +47,17 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
         >
           <span className="inline-block px-4 py-1.5 bg-secondary text-secondary-foreground rounded-full text-sm font-medium mb-6">
-            Valentine's Collection 2026
+            Premium Gift Collection
           </span>
           
           <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight mb-6">
-            Make this Valentine's
+            Find the Perfect Gift
             <br />
-            <span className="text-primary">Unforgettable</span>
+            <span className="text-primary">For Every Occasion</span>
           </h1>
           
           <p className="text-muted-foreground text-lg md:text-xl max-w-xl mx-auto mb-8">
-            Curated gifts that speak louder than words. From handcrafted hampers to 
-            digital love stories.
+            Thoughtfully curated gifts that make every moment special. From premium hampers to personalized keepsakes, delivered in 2-5 days.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

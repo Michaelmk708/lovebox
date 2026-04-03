@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '@/lib/api';
 import { Button } from '@/components/ui/button';
-import { Loader2, CheckCircle, Package, LogOut, Trash2 } from 'lucide-react'; // 👈 Added Trash2
+import { Loader2, CheckCircle, Package, LogOut, Trash2 } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 import {
   AlertDialog,
@@ -71,7 +71,7 @@ const Dashboard = () => {
       
       toast({
         title: "Order Approved",
-        description: `Order #${orderId} marked as PAID. Email sent.`,
+        description: `Order #${orderId} marked as fully PAID. Email sent.`,
         className: "bg-green-500 text-white",
       });
       fetchOrders();
@@ -84,12 +84,9 @@ const Dashboard = () => {
     }
   };
 
-  // 👇 NEW: Delete Handler
   const handleDelete = async (orderId: number) => {
     try {
       await api.delete(`/api/orders/${orderId}/`);
-      
-      // Update local state to remove item immediately without refetching
       setOrders(prev => prev.filter(order => order.id !== orderId));
 
       toast({
@@ -127,10 +124,8 @@ const Dashboard = () => {
 
         <div className="grid gap-6">
           {orders.map((order) => {
-            // 👇 CALCULATE THE 50% SPLIT
+            // 👇 Only tracking full total now
             const total = Number(order.total_amount);
-            const deposit = total / 2;
-            const balance = total - deposit;
 
             return (
               <div key={order.id} className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col md:flex-row gap-6 relative group">
@@ -158,7 +153,6 @@ const Dashboard = () => {
                       </Button>
                     )}
 
-                    {/* 👇 DELETE BUTTON (With Alert Dialog for Safety) */}
                     <AlertDialog>
                       <AlertDialogTrigger asChild>
                         <Button variant="ghost" className="w-full text-red-500 hover:text-red-700 hover:bg-red-50">
@@ -209,20 +203,10 @@ const Dashboard = () => {
                     </div>
                   </div>
 
-                  {/* 👇 NEW: Price Breakdown Section */}
-                  <div className="mt-4 pt-3 border-t border-gray-100 bg-gray-50 p-3 rounded-lg">
-                    <div className="flex justify-between items-center text-sm text-gray-500 mb-1">
-                      <span>Total Value:</span>
-                      <span>KES {total.toLocaleString()}</span>
-                    </div>
-                    <div className="flex justify-between items-center text-sm font-medium text-green-600 mb-1">
-                      <span>Deposit Paid (50%):</span>
-                      <span>KES {deposit.toLocaleString()}</span>
-                    </div>
-                    <div className="flex justify-between items-center border-t border-gray-200 pt-1 mt-1">
-                      <span className="font-bold text-gray-900">Balance Due:</span>
-                      <span className="text-xl font-bold text-rose-600">KES {balance.toLocaleString()}</span>
-                    </div>
+                  {/* 👇 UPDATED: Price Summary Section for Full Payment */}
+                  <div className="mt-4 pt-3 border-t border-gray-100 bg-gray-50 p-3 rounded-lg flex justify-between items-center">
+                    <span className="font-bold text-gray-900">Total Paid:</span>
+                    <span className="text-xl font-bold text-green-600">KES {total.toLocaleString()}</span>
                   </div>
                 </div>
 

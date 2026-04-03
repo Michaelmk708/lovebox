@@ -42,13 +42,13 @@ const ComingSoonTeaser = ({ category }: { category: 'flowers' | 'teddy_bears' })
 
           {/* Attractive Copy */}
           <h3 className="font-serif text-3xl md:text-4xl font-bold text-rose-950 mb-4">
-            {isFlowers ? "Blooms Worth Waiting For..." : "Cuddles Are Incoming..."}
+            {isFlowers ? "Beautiful Fresh Blooms..." : "Adorable Teddy Companions..."}
           </h3>
           
           <p className="text-lg text-rose-800/80 leading-relaxed mb-8">
             {isFlowers 
-              ? "Our florists are currently hand-picking the freshest, most romantic roses and lilies just for you. We are curating breathtaking bouquets that speak the language of love. Check back soon to secure the perfect arrangement!"
-              : "We are gathering the softest, huggable companions to make this Valentine's unforgettable. From giant 6ft bears to cute desk buddies, our premium teddy collection is on its way. Watch this space!"
+              ? "Our florists are carefully hand-picking the freshest, most vibrant flowers just for you. We're curating beautiful bouquets that add color and joy to any occasion. Check back soon to order your perfect arrangement!"
+              : "We're gathering the softest, cutest plush companions to make your gifting special. From giant teddy bears to adorable desk buddies, our premium collection is on its way. Watch this space!"
             }
           </p>
 
@@ -98,11 +98,11 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-10">
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-3">
-              Shop Valentine's Gifts
+              Shop Our Gift Collection
             </h2>
             <p className="text-muted-foreground max-w-lg mx-auto">
-              From thoughtful budget picks to luxurious hampers—find the perfect gift 
-              to show your love.
+              From thoughtful budget picks to premium hampers—find the perfect gift 
+              for every occasion. Fast delivery in 2-5 days.
             </p>
           </div>
 
@@ -187,7 +187,7 @@ const Index = () => {
             <span className="font-serif text-lg font-semibold">LoveBox</span>
           </div>
           <p className="text-sm text-muted-foreground">
-            Made with love for Valentine's Day 2026
+            Made with care by LoveBox
           </p>
           <p className="text-xs text-muted-foreground mt-2">
             Order • Fast Delivery around DKUT

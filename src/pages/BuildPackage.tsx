@@ -43,7 +43,7 @@ const BuildPackage = () => {
 
   const customHamper = {
       id: `custom-${Date.now()}`,
-      name: "Custom Valentine's Package",
+      name: "Custom Gift Package",
       price: finalTotal,
       // 👇 ADD 'as const' HERE
       category: 'hampers' as const, 
